@@ -25,8 +25,11 @@ public class Post {
     private Long id; // 글 번호
 
     @Column(nullable = false)
+    private String title; // 제목
+
+    @Column(nullable = false)
     private String writer; // 작성자
-    
+
     private String content; // 글 내용
 
     @CreationTimestamp
@@ -36,6 +39,18 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updateDate; // 수정 시간
 
-    @ManyToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post")
     List<HashTag> hashTags = new ArrayList<>();
+
 }
+
+
+
+
+
+
+
+
+
+
+
